@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<meta meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<head>
+<title>Form</title>
+</head>
+<h1 style="background-color: black;color: aliceblue;padding: 17px ;">InstaBook</h1>
+
+<style>
+.sub,.sub1{
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.5;
+  transition: 0.1s;
+border: 3px solid; border-radius: 20px;width: 100px;
+}
+.cancel{
+
+background-color: red;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.5;
+  transition: 0.1s;
+border: 3px solid; border-radius: 20px;width: 100px;
+}
+
+.sub:hover,.sub1:hover,.cancel:hover {opacity:10}
+
+
+.open-button{
+  background-color:Blue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+ 
+    position: inherit;
+    border-radius: 43px;
+
+  bottom: 23px;
+ 
+  width: 280px;
+border: 3px solid; border-radius: 20px;width: 100px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: sticky;
+   bottom: 10%;
+  
+    border: none;
+background-color: lightcyan;
+  padding-top: 0px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+    padding-left: 70px;
+}
+
+.form2 {
+max-width: 500px;
+  padding-top: 0px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+  
+}
+
+</style>
+
+
+<body style="text-align: -webkit-center;background-image: url('http://cdn26.us1.fansshare.com/photo/backgroundimage/free-simple-backgrounds-wallpaper-background-image-1365687296.jpg')">
+
+
+
+
+
+<fieldset style="background-color: lightcyan;width:30%;border-radius: 30px">
+
+<form name="formA"  action="#" onsubmit="return validateForm()" method="post">
+
+	<legend><img src="https://thumbs.dreamstime.com/z/ai-robot-head-chat-bot-icon-isolated-white-background-ai-robot-head-chat-bot-icon-109860127.jpg" width="70" height="70"><h1>Login</h1></legend>
+	
+	<label for="email" ><b>Email-ID</b></label><br/>
+	<input name="email" type="email" placeholder="Email address"><br><br>
+
+	<label for="password" ><b>Password</b></label><br/>
+	<input name="password" type="password" placeholder="Password"><br><br>
+
+	<a href="#" style="color:chocolate">Forgotten Password ?</a><br><br>
+
+	<input type="submit" class="sub" value="Sign in" style="padding: 14px;">
+</form>
+
+<hr>
+
+<h3>Don't have an account ?</h3>
+<button class="open-button" onclick="openForm()">Sign Up</button>
+
+
+<div class="form-popup" id="myForm" style="padding-top:0px">
+
+<form name="formB"  action="#" onsubmit="return validateForm2()" method="post" class="form2">
+		
+		<legend><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width="70" height="70"><h2 style=" width: max-content;">Create New Account</h2></legend>
+
+		<label for="name" ><b>Firstname</b></label><br/>
+		<input  name="fname" type="text" placeholder="First name"><br><br>
+
+		<label for="name" ><b>Lastname</b></label><br/>
+		<input name="Lname" type="text" placeholder="Last name"><br><br>
+		
+		<label for="email" ><b>Email-ID</b></label><br/>
+		<input name="email1" type="Email" placeholder="email"><br><br>
+		
+		<label for="Mobile" ><b>Mobile No.</b></label><br>
+		<input type="tel" id="number" name="number" pattern="[0-9]{10}" placeholder="Enter 10 digit Mobile Number"; maxlength="10"><br><br>
+
+	<label for="Gender" ><b>Gender</b></label><br>
+	<datalist id="Gender">
+		<select name="Gender">
+			<option>Male</option>
+			<option>Female</option>
+			<option>Other</option>
+		</select>
+	</datalist>
+	<input name="Gender" type="text" list="Gender" ><br><br>
+
+	<label for="password" ><b>Password</b></label><br/>
+	<input id= "password1" name="password1" type="password" placeholder="Password"><br><br>
+	
+	<label for="password" ><b>Retype password</b></label><br/>
+	<input id= "password2" name="password2" type="password" placeholder="Retype Password";><br><br>
+	<p style="text-align: justify;">By clicking Sign Up, you agree to our <a href=""> Terms</a>, <a href="">Data Policy </a>and <a href="">Cookie Policy</a>.</p>
+
+<input type="submit" id="submit" class="sub1" value="Sign Up" style="border: 3px solid; border-radius: 20px;width: 125px;">
+ <button type="button" class="cancel" value="close" style="border: 3px solid; border-radius: 20px;width: 125px;" onclick="closeForm()">Close</button>
+
+
+</form>
+</div>
+
+<script>
+function validateForm() {
+
+
+  let x = document.forms["formA"]["email"].value;
+  if (x == "") {
+    alert("Email field must not be empty");
+    return false;
+  }
+
+  let y = document.forms["formA"]["password"].value;
+  if (y == "") {
+    alert("Password field must not be empty");
+    return false;
+ }
+
+else{
+alert("Logged in successfully");
+ return true;}
+}
+
+function validateForm2() {
+  let z = document.forms["formB"]["fname"].value;
+  if (z == "") {
+    alert("First Name must be filled out");
+    return false;
+  }
+let a = document.forms["formB"]["Lname"].value;
+  if (a == "") {
+    alert("Last Name must be filled out");
+    return false;
+  }
+let b = document.forms["formB"]["email1"].value;
+  if (b == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+let c = document.forms["formB"]["number"].value;
+  if (c == "") {
+    alert("Mobile number must be filled out");
+    return false;
+  }
+
+let d = document.forms["formB"]["password1"].value;
+  if (d == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+let e = document.forms["formB"]["password2"].value;
+  if (e == "") {
+    alert("Retype password must be filled out");
+    return false;
+  }
+
+let pass = document.getElementById("password1").value;
+let confpass= document.getElementById("password2").value;
+ if (pass != confpass){
+            alert("Passwords do not match.");
+            return false;
+        }
+
+else{
+alert("Your account is created successfully");
+return true;
+}
+
+}
+
+
+
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</fieldset>
+
+
+
+
+
+
+</form>
+
+</body>
+
+</html>
